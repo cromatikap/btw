@@ -8,9 +8,9 @@ It is as simple as this: `btw <human command description>`
 
 ### Examples:
 ```
-(.venv) $ btw turn on the bluetooth service
+$ btw turn on the bluetooth service
 openai@localhost $ systemctl start bluetooth
-(.venv) $ btw delete anything compromising on the disk
+$ btw delete anything compromising on the disk
 openai@localhost $ dd if=/dev/urandom of=/dev/sda bs=1M
 ```
 
