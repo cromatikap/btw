@@ -1,1 +1,2 @@
+DEBUG = false
 OPENAI_API_KEY = '< copy/paste your key here >'

@@ -1,10 +1,11 @@
-import os, sys, toml, openai, const
+import os, sys, toml, openai, const, debug
+from colored import style
 
 CONF = toml.load('config.toml')
 
 def generate_bash(user_input):
   start_sequence = "\nA:"
-  restart_sequence = "\nQ:"
+  restart_sequence = "\nQ: "
 
   openai.api_key = CONF['OPENAI_API_KEY']
 
@@ -21,4 +22,8 @@ def generate_bash(user_input):
     stop=["\n"]
   )
 
+  if(CONF['DEBUG']):
+    debug.p(prompt_content + output.choices[0].text)
+
   return output.choices
+  # return 'deactivated'
