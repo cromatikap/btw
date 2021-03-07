@@ -25,5 +25,5 @@ def generate_bash(user_input):
   if(CONF['DEBUG']):
     debug.p(prompt_content + output.choices[0].text)
 
-  return output.choices
+  return output.choices[0].text
   # return 'deactivated'
