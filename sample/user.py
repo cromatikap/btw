@@ -1,4 +1,4 @@
-import toml
+import toml, inquirer, subprocess
 from sample import debug
 
 class User:
@@ -15,7 +15,27 @@ class User:
 
     input = ""
     for i, word in enumerate(self.input[1:], start=0):
-      if i > 0: input += ' '
-      input += word
+      input += ' ' + word
 
-    return input
+    return input.strip()
+  
+  def set_feedback(self):
+    answers = inquirer.prompt([
+      inquirer.List(
+        "action",
+        message="Your choice",
+        choices=["Execute", "Correct", "Cancel"],
+      ),
+    ])
+    return answers['action']
+  
+  def execute(self, bash_command):
+    result = subprocess.run(bash_command.split(), stdout=subprocess.PIPE)
+    print(result.stdout.decode('utf-8').strip())
+    
+    if(result.stderr):
+      print('[error]')
+      print(result.stderr)
+  
+  def correct(self):
+    print('Correct: coming soon.')

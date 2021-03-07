@@ -1,6 +1,6 @@
 # By the way...
 
-... let's turn Arch Linux into life using openai API.
+... NLP command line powered by openai.
 
 ## Usage
 
