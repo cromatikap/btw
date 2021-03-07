@@ -1,5 +1,6 @@
-import os, sys, toml, openai, const, debug
+import os, sys, toml, openai
 from colored import style
+from sample import debug, const
 
 CONF = toml.load('config.toml')
 
