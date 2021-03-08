@@ -8,7 +8,6 @@ It is as simple as this: `btw <human command description>`
 
 ### Examples:
 
-
 ```
 $ btw install oh-my-zsh
 openai@localhost $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -27,6 +26,10 @@ openai@localhost $ dd if=/dev/urandom of=/dev/sda bs=1M
 ```
 
 ## Getting started
+
+### Requirements
+
+- python >= 3.8
 
 ### Cloning & configuration
 ```

@@ -1,4 +1,5 @@
-import toml, inquirer, subprocess
+import sys, toml, inquirer, subprocess, readline
+from io import StringIO
 from sample import debug
 
 class User:
@@ -31,11 +32,21 @@ class User:
   
   def execute(self, bash_command):
     result = subprocess.run(bash_command.split(), stdout=subprocess.PIPE)
+    print(' [ Execute ] $ ' + bash_command.strip())
     print(result.stdout.decode('utf-8').strip())
     
     if(result.stderr):
-      print('[error]')
+      print(' [ error ] ')
       print(result.stderr)
-  
-  def correct(self):
-    print('Correct: coming soon.')
+
+  def correct(self, placeholder):
+    
+    def rlinput(self, prefill=''):
+      readline.set_startup_hook(lambda: readline.insert_text(prefill))
+      try:
+        return input(self)
+      finally:
+        readline.set_startup_hook()
+
+    return rlinput(' [ Correct ] $ ', placeholder)
+    
