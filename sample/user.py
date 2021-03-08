@@ -28,11 +28,11 @@ class User:
         choices=["Execute", "Correct", "Cancel"],
       ),
     ])
-    return answers['action']
+    return answers and answers['action']
   
   def execute(self, bash_command):
-    result = subprocess.run(bash_command.split(), stdout=subprocess.PIPE)
     print(' [ Execute ] $ ' + bash_command.strip())
+    result = subprocess.run(bash_command.split(), stdout=subprocess.PIPE)
     print(result.stdout.decode('utf-8').strip())
     
     if(result.stderr):
