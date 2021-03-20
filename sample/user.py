@@ -1,6 +1,6 @@
 import sys, toml, inquirer, subprocess, readline
 from io import StringIO
-from sample import debug
+from sample import debug, history
 
 class User:
   def __init__(self, input):
@@ -11,8 +11,7 @@ class User:
       debug.p(' [Debug mode] ')
 
     if(len(self.input) <= 1):
-      print("Please provide an input, ex: python btw.py turn off the bluetooth")
-      return
+      return False
 
     input = ""
     for i, word in enumerate(self.input[1:], start=0):
@@ -48,5 +47,9 @@ class User:
       finally:
         readline.set_startup_hook()
 
-    return rlinput(' [ Correct ] $ ', placeholder)
+    correction = rlinput(' [ Correct ] $ ', placeholder)
+    
+    history.save(correction)
+
+    return correction
     
