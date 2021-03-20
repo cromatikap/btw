@@ -12,19 +12,22 @@ def generate_bash(user_input):
   openai.api_key = CONF['OPENAI_API_KEY']
 
   prompt_content = const.SHOW_AND_TELL + restart_sequence + user_input + start_sequence
+  
+  try:
+    output = openai.Completion.create(
+      engine="davinci",
+      prompt=prompt_content,
+      temperature=0.5,
+      max_tokens=100,
+      top_p=1,
+      frequency_penalty=0.2,
+      presence_penalty=0,
+      stop=["\n"]
+    )
 
-  output = openai.Completion.create(
-    engine="davinci",
-    prompt=prompt_content,
-    temperature=0.5,
-    max_tokens=100,
-    top_p=1,
-    frequency_penalty=0.2,
-    presence_penalty=0,
-    stop=["\n"]
-  )
+    debug.p(prompt_content + output.choices[0].text)
 
-  debug.p(prompt_content + output.choices[0].text)
-
-  return output.choices[0].text
-  # return 'deactivated'
+    return output.choices[0].text
+  except:
+    debug.p('Wrong API key.')
+    return False
