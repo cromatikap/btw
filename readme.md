@@ -6,6 +6,9 @@
 
 It is as simple as this: `btw <human command description>`
 
+![bytheway](https://user-images.githubusercontent.com/7074019/110270554-5d453180-7fc6-11eb-90ca-43367bca5b15.gif)
+
+
 ### Examples:
 
 ```
