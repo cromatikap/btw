@@ -10,7 +10,7 @@ jobs:
           python-version: '3.8'
       - name: Create config.toml
         run: |
-          echo "OPENAI_API_KEY = ${{ secrets.OPENAI_API_KEY }}" > config.toml
+          echo "OPENAI_API_KEY = 'dummy value'" > config.toml
           echo "DEBUG = true" >> config.toml
       - name: pre test
         run: | 
