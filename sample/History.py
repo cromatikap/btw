@@ -3,7 +3,7 @@ from sample import debug
 
 class History:
 
-  def __init__(self, file_path_name=".btw-history"):
+  def __init__(self, file_path_name):
     debug.p(self.__class__.__name__ + '.__init__()')
     self.file_path_name = file_path_name
     try:
@@ -26,11 +26,11 @@ class History:
         return True
     return False
   
-  def check_file(self):
+  def error(self):
     if(self.__has_wrong_format(self.file)):
       return self.file_path_name + ' is in a wrong format, remove this file to solve the problem.'
     else:
-      return True
+      return False
   
   def __find_by_input(self, txt_input):
     debug.p(self.__class__.__name__ + '.__find_by_input("' + txt_input + '"):')

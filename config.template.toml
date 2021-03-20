@@ -1,2 +1,2 @@
+OPENAI_API_KEY = 'copy/paste your OpenAI API key here'
 DEBUG = false
-OPENAI_API_KEY = '< copy/paste your key here >'

@@ -7,8 +7,8 @@ def main(argv):
   debug.p('\n\n [Debug mode] \n')
 
   user = User(argv)
-  config_status = user.check_config()
-  if(config_status == True):
+  init_status = user.init()
+  if(init_status == True):
     user_input = user.get_input()
 
     bash_result = openai.generate_bash(user_input)
@@ -28,10 +28,10 @@ def main(argv):
     else:
       error.arg('Impossible to connect to OpenAI API, please provide a valid API key using the following command:')
       error.arg('btw --add-openai-key <key>')
-  elif(config_status == False):
+  elif(init_status == False):
     error.arg('Please provide an input, ex: python btw.py turn off the bluetooth')
   else:
-    error.config(config_status)
+    error.config(init_status)
   
 if __name__ == "__main__":
   main(sys.argv)

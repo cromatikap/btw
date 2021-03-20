@@ -1,16 +1,28 @@
-import sys, inquirer, subprocess, readline
+import sys, inquirer, subprocess, readline, toml
 from sample.History import History
 from sample import debug
 
 class User:
-  def __init__(self, txt_input):
+  def __init__(self, txt_input, history_path_name=".btw-history"):
     debug.p(self.__class__.__name__ + '.__init__()')
     self.txt_input = txt_input
-    self.History = History()
+    self.History = History(history_path_name)
   
-  def check_config(self):
+  def init(self):
+    errors = []
     if(self.get_input()):
-      return self.History.check_file()
+
+      history_error = self.History.error()
+      if(history_error):
+        errors.append(history_error)
+
+      if(len(toml.load('config.toml')['OPENAI_API_KEY']) == 0):
+        errors.append('OpenAI API key has not been provided. Please run the following command:\n    btw --add-openai-key <key>')
+
+      if(errors):
+        return errors
+      else:
+        return True
     else:
       return False
   
