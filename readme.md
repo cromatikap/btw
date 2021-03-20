@@ -1,6 +1,13 @@
-# By the way...
 
-... NLP command line powered by openai.
+
+<h1 align="center">By the way...</h1>
+
+
+<h2 align="center">
+  ... NLP command line powered by openai.
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/7074019/110270554-5d453180-7fc6-11eb-90ca-43367bca5b15.gif" />
+</h2>
 
 ## Usage
 
@@ -15,9 +22,6 @@ $ btw --add-openai-key <key>
 ```
 $ btw <human command description>
 ```
-
-![bytheway](https://user-images.githubusercontent.com/7074019/110270554-5d453180-7fc6-11eb-90ca-43367bca5b15.gif)
-
 
 ### Examples:
 
