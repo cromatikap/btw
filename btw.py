@@ -1,10 +1,10 @@
 import sys
 from sample.User import User
 from sample.History import History
-from sample import debug, openai, error
+from sample import log, openai
 
 def main(argv):
-  debug.p('\n\n [Debug mode] \n')
+  log.debug('\n\n [Debug mode] \n')
 
   user = User(argv)
   init_status = user.init()
@@ -26,12 +26,21 @@ def main(argv):
       elif (feedback == 'Cancel'):
         pass
     else:
-      error.arg('Impossible to connect to OpenAI API, please provide a valid API key using the following command:')
-      error.arg('btw --add-openai-key <key>')
+      log.error['arg']('Impossible to connect to OpenAI API, please provide a valid API key using the following command:')
+      log.error['arg']('btw --add-openai-key <key>')
   elif(init_status == False):
-    error.arg('Please provide an input, ex: python btw.py turn off the bluetooth')
+    log.error['arg']('Please provide an input, ex: python btw.py turn off the bluetooth')
   else:
-    error.config(init_status)
-  
+    log.error['config'](init_status)
+
+def add_openai_key(argv):
+  if len(sys.argv) <= 2:
+    log.error['arg']('No key provided.')
+  else:
+    print('Okay.')
+
 if __name__ == "__main__":
-  main(sys.argv)
+  if(len(sys.argv) > 1 and sys.argv[1] == '--add-openai-key'):
+    add_openai_key(sys.argv)
+  else:
+    main(sys.argv)

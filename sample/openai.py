@@ -1,11 +1,11 @@
 import os, sys, toml, openai
 from colored import style
-from sample import debug, const
+from sample import log, const
 
 CONF = toml.load('config.toml')
 
 def generate_bash(user_input):
-  debug.p('openai.generate_bash("' + user_input + '"): ')
+  log.debug('openai.generate_bash("' + user_input + '"): ')
   start_sequence = "\nA:"
   restart_sequence = "\nQ: "
 
@@ -25,9 +25,9 @@ def generate_bash(user_input):
       stop=["\n"]
     )
 
-    debug.p(prompt_content + output.choices[0].text)
+    log.debug(prompt_content + output.choices[0].text)
 
     return output.choices[0].text
   except:
-    debug.p('Wrong API key.')
+    log.debug('Wrong API key.')
     return False

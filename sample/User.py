@@ -1,10 +1,10 @@
 import sys, inquirer, subprocess, readline, toml
 from sample.History import History
-from sample import debug
+from sample import log
 
 class User:
   def __init__(self, txt_input, history_path_name=".btw-history"):
-    debug.p(self.__class__.__name__ + '.__init__()')
+    log.debug(self.__class__.__name__ + '.__init__()')
     self.txt_input = txt_input
     self.History = History(history_path_name)
   
