@@ -9,7 +9,10 @@ class User:
     self.History = History()
   
   def check_config(self):
-    return self.History.check_file()
+    if(self.get_input()):
+      return self.History.check_file()
+    else:
+      return False
   
   def get_input(self):
 

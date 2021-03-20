@@ -24,6 +24,8 @@ def main(argv):
       user.execute(user.correct(bash_result))
     elif (feedback == 'Cancel'):
       pass
+  elif(config_status == False):
+    print('Please provide an input, ex: python btw.py turn off the bluetooth')
   else:
     print('\n                      [ Configuration error ]\n')
     print(config_status)
