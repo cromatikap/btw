@@ -6,7 +6,12 @@ class History:
   def __init__(self, file_path_name=".btw-history"):
     debug.p(self.__class__.__name__ + '.__init__()')
     self.file_path_name = file_path_name
-    self.file = open(file_path_name, 'r+')
+    try:
+      open(file_path_name, 'x')
+    except:
+      debug.p(file_path_name + ' file found.')
+    finally:
+      self.file = open(file_path_name, 'r+')
   
   def __del__(self):
     debug.p(self.__class__.__name__ + '.__del__()')
