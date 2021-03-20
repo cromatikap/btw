@@ -12,5 +12,7 @@ jobs:
         env:
           FILE_NAME: config.toml
           FILE_DATA: "OPENAI_API_KEY = ${{ secrets.OPENAI_API_KEY }}\nDEBUG = true"
+      - name: pre test
+        run: pwd && ls && cat config.toml
       - name: Test
         uses: onichandame/python-test-action@master
