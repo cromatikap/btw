@@ -1,15 +1,13 @@
 import os, sys, toml, openai
 from colored import style
-from sample import log, const
-
-CONF = toml.load('config.toml')
+from sample import log, const, config
 
 def generate_bash(user_input):
   log.debug('openai.generate_bash("' + user_input + '"): ')
   start_sequence = "\nA:"
   restart_sequence = "\nQ: "
 
-  openai.api_key = CONF['OPENAI_API_KEY']
+  openai.api_key = config.get('OPENAI_API_KEY')
 
   prompt_content = const.SHOW_AND_TELL + restart_sequence + user_input + start_sequence
   

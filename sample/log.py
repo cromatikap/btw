@@ -1,12 +1,12 @@
 from colored import fg, bg, attr
-import toml
+from sample import config
 
 #
 # format informations displayed when DEBUG = true in config.toml
 #
 
 def debug(content):
-  if(toml.load('config.toml')['DEBUG']):
+  if(config.get('DEBUG')):
     color = fg('#FFFFFF') + bg('#00005f')
     print(color + content + attr('reset'))
   else:

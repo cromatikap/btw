@@ -1,7 +1,7 @@
 import sys
 from sample.User import User
 from sample.History import History
-from sample import log, openai
+from sample import log, openai, config
 
 def main(argv):
   log.debug('\n\n [Debug mode] \n')
