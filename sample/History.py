@@ -7,7 +7,8 @@ class History:
     debug.p(self.__class__.__name__ + '.__init__()')
     self.file_path_name = file_path_name
     try:
-      open(file_path_name, 'x')
+      f = open(file_path_name, 'x')
+      f.close()
     except:
       debug.p(file_path_name + ' file found.')
     finally:
