@@ -38,6 +38,7 @@ def add_openai_key(argv):
     log.error['arg']('No key provided.')
   else:
     config.set('OPENAI_API_KEY', argv[2])
+    print('OpenAI API Key added.')
 
 if __name__ == "__main__":
   if(len(sys.argv) > 1 and sys.argv[1] == '--add-openai-key'):
