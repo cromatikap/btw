@@ -50,3 +50,9 @@ $ source ./.venv/bin/activate
 ```
 
 And you're ready to go 🥳
+
+## Run unit tests
+
+```
+$ python -m unittest
+```

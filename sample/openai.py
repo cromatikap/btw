@@ -5,6 +5,7 @@ from sample import debug, const
 CONF = toml.load('config.toml')
 
 def generate_bash(user_input):
+  debug.p('openai.generate_bash("' + user_input + '"): ')
   start_sequence = "\nA:"
   restart_sequence = "\nQ: "
 
@@ -23,8 +24,7 @@ def generate_bash(user_input):
     stop=["\n"]
   )
 
-  if(CONF['DEBUG']):
-    debug.p(prompt_content + output.choices[0].text)
+  debug.p(prompt_content + output.choices[0].text)
 
   return output.choices[0].text
   # return 'deactivated'

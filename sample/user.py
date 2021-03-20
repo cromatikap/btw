@@ -1,23 +1,26 @@
-import sys, toml, inquirer, subprocess, readline
-from io import StringIO
-from sample import debug, history
+import sys, inquirer, subprocess, readline
+from sample.History import History
+from sample import debug
 
 class User:
-  def __init__(self, input):
-    self.input = input
+  def __init__(self, txt_input):
+    debug.p(self.__class__.__name__ + '.__init__()')
+    self.txt_input = txt_input
+    self.History = History()
+  
+  def check_config(self):
+    return self.History.check_file()
   
   def get_input(self):
-    if(toml.load('config.toml')['DEBUG']):
-      debug.p(' [Debug mode] ')
 
-    if(len(self.input) <= 1):
+    if(len(self.txt_input) <= 1):
       return False
 
-    input = ""
-    for i, word in enumerate(self.input[1:], start=0):
-      input += ' ' + word
+    txt_input = ""
+    for i, word in enumerate(self.txt_input[1:], start=0):
+      txt_input += ' ' + word
 
-    return input.strip()
+    return txt_input.strip()
   
   def set_feedback(self):
     answers = inquirer.prompt([
@@ -30,9 +33,14 @@ class User:
     return answers and answers['action']
   
   def execute(self, bash_command):
-    print(' [ Execute ] $ ' + bash_command.strip())
+
+    bash_command = bash_command.strip()
+
+    print(' [ Execute ] $ ' + bash_command)
     result = subprocess.run(bash_command.split(), stdout=subprocess.PIPE)
     print(result.stdout.decode('utf-8').strip())
+
+    self.History.save(self.get_input(), bash_command)
     
     if(result.stderr):
       print(' [ error ] ')
@@ -48,8 +56,6 @@ class User:
         readline.set_startup_hook()
 
     correction = rlinput(' [ Correct ] $ ', placeholder)
-    
-    history.save(correction)
 
     return correction
     
