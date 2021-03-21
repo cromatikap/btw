@@ -3,6 +3,6 @@
 __pycache__
 config.toml
 .DS_Store
-.btw-history
+history.csv
 build
 dist

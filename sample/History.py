@@ -1,7 +1,7 @@
 import csv
 from sample import log, config
 
-HISTORY_FILE_PATH = config.get('HISTORY_FILE_PATH')
+HISTORY_FILE_PATH = config.get('HISTORY_FILE_NAME')
 
 class History:
 
