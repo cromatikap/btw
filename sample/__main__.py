@@ -31,8 +31,7 @@ def __run(argv):
       elif (feedback == 'Cancel'):
         pass
     else:
-      log.error['arg']('Impossible to connect to OpenAI API, please provide a valid API key using the following command:')
-      log.error['arg']('btw --add-openai-key <key>')
+      print('\nUsage: btw --add-openai-key <key>\n')
   elif(init_status == False):
     log.error['arg']('Please provide an input, ex: python btw.py turn off the bluetooth')
   else:

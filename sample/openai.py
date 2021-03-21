@@ -24,8 +24,8 @@ def generate_bash(user_input):
     )
 
     log.debug(prompt_content + output.choices[0].text)
-
     return output.choices[0].text
-  except:
-    log.debug('Wrong API key.')
+
+  except openai.error.AuthenticationError as e:
+    log.error['arg']('[ OpenAI ] : ' + str(e))
     return False
