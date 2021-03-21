@@ -4,3 +4,5 @@ __pycache__
 config.toml
 .DS_Store
 .btw-history
+build
+dist
