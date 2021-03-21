@@ -11,7 +11,7 @@ jobs:
       - name: Create config.toml
         run: |
           echo "OPENAI_API_KEY = 'dummy value'" > config.toml
-          echo "HISTORY_FILE_PATH = '~/.btw-history'" > config.toml
+          echo "HISTORY_FILE_PATH = '~/.btw-history'" >> config.toml
           echo "DEBUG = true" >> config.toml
       - name: pre test
         run: | 
