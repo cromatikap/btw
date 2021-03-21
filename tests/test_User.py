@@ -25,5 +25,5 @@ class TestUser(unittest.TestCase):
     self.assertTrue(user.get_input(), "btw list files")
 
   def test_get_input_empty(self):
-    user = User([])
+    user = User([], 'tests/.btw-history-good-format')
     self.assertFalse(user.get_input())

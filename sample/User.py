@@ -3,10 +3,9 @@ from sample.History import History
 from sample import log, config
 
 class User:
-  def __init__(self, txt_input, history_path_name=".btw-history"):
-    log.debug(self.__class__.__name__ + '.__init__()')
+  def __init__(self, txt_input, history_path_name = None):
     self.txt_input = txt_input
-    self.History = History(history_path_name)
+    self.History = History(history_path_name) if history_path_name else History()
   
   def init(self):
     errors = []

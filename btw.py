@@ -1,7 +1,5 @@
-import sys
-from sample.__main__ import main
-
 import sys, os
+from sample.__main__ import main
 
 # From: https://stackoverflow.com/a/47699138/12596275
 def override_where():

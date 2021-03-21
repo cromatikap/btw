@@ -9,7 +9,7 @@ def main(argv):
     __run(argv)
 
 def __run(argv):
-  log.debug('\n\n [Debug mode] \n')
+  log.debug('      [Debug mode]      ')
 
   user = User(argv)
   init_status = user.init()

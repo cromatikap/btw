@@ -70,3 +70,15 @@ And you're ready to go 🥳
 ```
 $ python -m unittest
 ```
+
+## Build
+
+This has to be run from the virtual environment setup described above.
+
+```
+(.venv) $ rm -rf build dist            # <- clean old build
+(.venv) $ python -m PyInstaller btw.py
+(.venv) $ cp config.template.toml dist/btw/config.toml
+(.venv) $ cd dist/btw/
+(.venv) $ ./btw
+```

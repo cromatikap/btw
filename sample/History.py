@@ -1,13 +1,15 @@
 import csv
-from sample import log
+from sample import log, config
+
+HISTORY_FILE_PATH = config.get('HISTORY_FILE_PATH')
 
 class History:
 
-  def __init__(self, file_path_name):
-    log.debug(self.__class__.__name__ + '.__init__()')
+  def __init__(self, file_path_name=HISTORY_FILE_PATH):
     self.file_path_name = file_path_name
     try:
       f = open(file_path_name, 'x')
+      log.debug(file_path_name + ' file created.')
       f.close()
     except:
       log.debug(file_path_name + ' file found.')
@@ -15,7 +17,6 @@ class History:
       self.file = open(file_path_name, 'r+')
   
   def __del__(self):
-    log.debug(self.__class__.__name__ + '.__del__()')
     self.file.close()
 
   def __has_wrong_format(self, file):
