@@ -79,6 +79,8 @@ This has to be run from the virtual environment setup described above.
 (.venv) $ rm -rf build dist            # <- clean old build
 (.venv) $ python -m PyInstaller btw.py
 (.venv) $ cp config.template.toml dist/btw/config.toml
-(.venv) $ cd dist/btw/
-(.venv) $ ./btw
+(.venv) $ cp -r .venv/lib/python3.8/site-packages/certifi dist/btw
+(.venv) $ cp -r .venv/lib/python3.8/site-packages/openai dist/btw
 ```
+
+Try it: `(.venv) $ dist/btw/btw`
