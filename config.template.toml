@@ -1,2 +1,3 @@
+OPENAI_API_KEY = ""
+HISTORY_FILE_NAME = "history.csv"
 DEBUG = false
-OPENAI_API_KEY = '< copy/paste your key here >'

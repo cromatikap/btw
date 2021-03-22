@@ -1,19 +1,26 @@
-import sys, AI, toml, debug
+import sys, os
+from sample.__main__ import main
 
-def main(argv):
-  if(toml.load('config.toml')['DEBUG']):
-    debug.p(' [Debug mode] ')
+# From: https://stackoverflow.com/a/47699138/12596275
+def override_where():
+  """ overrides certifi.core.where to return actual location of cacert.pem"""
+  # change this to match the location of cacert.pem
+  return os.path.abspath("cacert.pem")
 
-  if(len(argv) <= 1):
-    print("Please provide an input, ex: python btw.py turn off the bluetooth")
-    return
+# is the program compiled?
+if hasattr(sys, "frozen"):
+  import certifi.core
 
-  user_input = ""
-  for i, word in enumerate(argv[1:], start=0):
-    if i > 0: user_input += ' '
-    user_input += word
-  
-  print(AI.generate_bash(user_input)[0].text)
-  
-if __name__ == "__main__":
+  os.environ["REQUESTS_CA_BUNDLE"] = override_where()
+  certifi.core.where = override_where
+
+  # delay importing until after where() has been replaced
+  import requests.utils
+  import requests.adapters
+  # replace these variables in case these modules were
+  # imported before we replaced certifi.core.where
+  requests.utils.DEFAULT_CA_BUNDLE_PATH = override_where()
+  requests.adapters.DEFAULT_CA_BUNDLE_PATH = override_where()
+
+if __name__ == '__main__':
   main(sys.argv)

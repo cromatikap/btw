@@ -1,0 +1,20 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Create config.toml
+        run: |
+          echo "OPENAI_API_KEY = 'dummy value'" > config.toml
+          echo "HISTORY_FILE_NAME = 'history.csv'" >> config.toml
+          echo "DEBUG = true" >> config.toml
+      - name: pre test
+        run: | 
+          cat config.toml
+      - name: Test
+        uses: onichandame/python-test-action@master
