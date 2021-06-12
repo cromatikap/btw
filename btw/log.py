@@ -1,5 +1,5 @@
 from colored import fg, bg, attr
-from sample import config
+import config
 
 #
 # format informations displayed when DEBUG = true in config.toml

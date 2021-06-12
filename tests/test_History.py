@@ -1,5 +1,5 @@
 import unittest
-from sample.History import History
+from btw.History import History
 
 class TestHistory(unittest.TestCase):
 

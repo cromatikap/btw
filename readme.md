@@ -68,10 +68,48 @@ And you're ready to go 🥳
 ## Run unit tests
 
 ```
-$ python -m unittest
+(.venv) $ python -m unittest
 ```
 
-## Build
+## Publishing on PyPi
+
+These steps are based on this [tutorial](https://realpython.com/pypi-publish-python-package/#building-your-package).
+
+1. Bump version in `setup.py` and `btw/__init__.py`.
+
+2. Build the package.
+
+```
+(.venv) $ python setup.py sdist bdist_wheel
+```
+
+This will create two files in a newly created `dist` directory, a source archive and a wheel.
+
+3. Check that the newly built distribution packages contain the files you expect.
+
+```
+(.venv) $ tar tzf dist/btw-X.Y.Z.tar.gz
+```
+
+4. Check that your package description will render properly on PyPI.
+
+```
+(.venv) $ twine check dist/btw-X.Y.Z*
+```
+
+5. Upload the package on the testing repository.
+
+```
+(.venv) $ twine upload --repository-url https://test.pypi.org/legacy/ dist/btw-X.Y.Z*
+```
+
+6. Upload the package (for real).
+
+```
+(.venv) $ twine upload dist/*
+```
+
+## Build with PyInstaller (deprecated)
 
 This has to be run from the virtual environment setup described above.
 

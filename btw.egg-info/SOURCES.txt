@@ -1,0 +1,15 @@
+setup.py
+btw/History.py
+btw/User.py
+btw/__init__.py
+btw/__main__.py
+btw/ai.py
+btw/config.py
+btw/const.py
+btw/log.py
+btw.egg-info/PKG-INFO
+btw.egg-info/SOURCES.txt
+btw.egg-info/dependency_links.txt
+btw.egg-info/entry_points.txt
+btw.egg-info/requires.txt
+btw.egg-info/top_level.txt

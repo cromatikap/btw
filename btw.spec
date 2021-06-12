@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['btw.py'],
-             pathex=['/Users/bidetaggle/Desktop/openai/bytheway'],
+             pathex=['/Users/bidetaggle/Desktop/openai/btw'],
              binaries=[],
              datas=[],
              hiddenimports=[],

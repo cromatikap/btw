@@ -1,6 +1,6 @@
 import sys, inquirer, subprocess, readline
-from sample.History import History
-from sample import log, config
+from History import History
+import log, config
 
 class User:
   def __init__(self, txt_input, history_path_name = None):

@@ -1,5 +1,5 @@
 import sys, os
-from sample.__main__ import main
+from btw.__main__ import main
 
 # From: https://stackoverflow.com/a/47699138/12596275
 def override_where():
@@ -7,7 +7,7 @@ def override_where():
   # change this to match the location of cacert.pem
   return os.path.abspath("cacert.pem")
 
-# is the program compiled?
+# is the program compiled? (using PyInstaller)
 if hasattr(sys, "frozen"):
   import certifi.core
 

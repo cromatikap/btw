@@ -1,0 +1,5 @@
+wheel
+openai
+toml
+colored
+inquirer

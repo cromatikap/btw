@@ -1,0 +1,3 @@
+[console_scripts]
+btw = btw.__main__:main
+

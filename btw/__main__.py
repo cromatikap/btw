@@ -1,6 +1,7 @@
-from sample.User import User
-from sample.History import History
-from sample import log, openai, config
+import sys
+from User import User
+from History import History
+import log, config, ai
 
 def main(argv):
   if(len(argv) > 1 and argv[1] == '--add-openai-key'):
@@ -16,7 +17,7 @@ def __run(argv):
   if(init_status == True):
     user_input = user.get_input()
 
-    bash_result = openai.generate_bash(user_input)
+    bash_result = ai.generate_bash(user_input)
     # DEBUG:
     # bash_result = "ls -l"
 
@@ -43,3 +44,6 @@ def __add_openai_key(argv):
   else:
     config.set('OPENAI_API_KEY', argv[2])
     print('OpenAI API Key added.')
+
+if __name__ == '__main__':
+  main(sys.argv)
