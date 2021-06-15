@@ -59,7 +59,7 @@ $ cp config.template.toml config.toml
 $ virtualenv .venv
 $ source ./.venv/bin/activate
 (.venv) $ pip install -r requirements.txt
-(.venv) $ alias btw="python btw.py"
+(.venv) $ alias btw="python -m btw"
 (.venv) $ btw --add-openai-key <copy/paste your key here>
 ```
 

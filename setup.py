@@ -14,7 +14,7 @@ README = (HERE / "readme.md").read_text()
 # This call to setup() does all the work
 setup(
     name="btw",
-    version="1.0.1",
+    version="1.0.2",
     description="By The Way is an NLP command line powered by openai",
     long_description=README,
     long_description_content_type="text/markdown",

@@ -1,7 +1,7 @@
 import sys
-from User import User
-from History import History
-import log, config, ai
+from .User import User
+from .History import History
+from . import log, config, ai
 
 def main(argv):
   if(len(argv) > 1 and argv[1] == '--add-openai-key'):

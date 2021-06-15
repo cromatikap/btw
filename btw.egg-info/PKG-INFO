@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: btw
-Version: 1.0.1
+Version: 1.0.2
 Summary: By The Way is an NLP command line powered by openai
 Home-page: https://github.com/bidetaggle/btw
 Author: bidetaggle
@@ -67,7 +67,7 @@ Description:
         $ virtualenv .venv
         $ source ./.venv/bin/activate
         (.venv) $ pip install -r requirements.txt
-        (.venv) $ alias btw="python btw.py"
+        (.venv) $ alias btw="python -m btw"
         (.venv) $ btw --add-openai-key <copy/paste your key here>
         ```
         
@@ -96,19 +96,19 @@ Description:
         3. Check that the newly built distribution packages contain the files you expect.
         
         ```
-        (.venv) $ tar tzf dist/btw-*.tar.gz
+        (.venv) $ tar tzf dist/btw-X.Y.Z.tar.gz
         ```
         
         4. Check that your package description will render properly on PyPI.
         
         ```
-        (.venv) $ twine check dist/*
+        (.venv) $ twine check dist/btw-X.Y.Z*
         ```
         
         5. Upload the package on the testing repository.
         
         ```
-        (.venv) $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+        (.venv) $ twine upload --repository-url https://test.pypi.org/legacy/ dist/btw-X.Y.Z*
         ```
         
         6. Upload the package (for real).

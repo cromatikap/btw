@@ -1,5 +1,5 @@
 import csv
-import log, config
+from . import log, config
 
 HISTORY_FILE_PATH = config.get('HISTORY_FILE_NAME')
 

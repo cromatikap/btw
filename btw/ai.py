@@ -1,5 +1,5 @@
 import os, sys, toml, openai
-import log, const, config
+from . import log, const, config
 from colored import style
 
 def generate_bash(user_input):
