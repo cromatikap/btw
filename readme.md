@@ -48,14 +48,9 @@ openai@localhost $ dd if=/dev/urandom of=/dev/sda bs=1M
 
 - python >= 3.8
 
-### Cloning & configuration
-```
-$ git clone git@github.com:bidetaggle/bytheway.git
-$ cp config.template.toml config.toml
-```
-
 ### Environment setup
 ```
+$ git clone git@github.com:bidetaggle/btw.git && cd btw
 $ virtualenv .venv
 $ source ./.venv/bin/activate
 (.venv) $ pip install -r requirements.txt
@@ -108,6 +103,8 @@ This will create two files in a newly created `dist` directory, a source archive
 ```
 (.venv) $ twine upload dist/*
 ```
+
+> :warning: Once installed through pip, the package doesn't take in consideration arguments because `sys.argv` is not passed to `sys.exit(main())` in the file located in `/your/python/installation/path/bin/btw`. If you are reading this and know the solution, please contact me (or make PR) it would makes me be happy 😁
 
 ## Build with PyInstaller (deprecated)
 

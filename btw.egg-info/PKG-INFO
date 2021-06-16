@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: btw
-Version: 1.0.2
+Version: 1.0.3
 Summary: By The Way is an NLP command line powered by openai
 Home-page: https://github.com/bidetaggle/btw
 Author: bidetaggle
@@ -56,14 +56,9 @@ Description:
         
         - python >= 3.8
         
-        ### Cloning & configuration
-        ```
-        $ git clone git@github.com:bidetaggle/bytheway.git
-        $ cp config.template.toml config.toml
-        ```
-        
         ### Environment setup
         ```
+        $ git clone git@github.com:bidetaggle/btw.git && cd btw
         $ virtualenv .venv
         $ source ./.venv/bin/activate
         (.venv) $ pip install -r requirements.txt

@@ -1,10 +1,21 @@
 import os, sys, toml
 
 # From: https://www.blog.pythonlibrary.org/2013/10/29/python-101-how-to-find-the-path-of-a-running-script/
-FILE_NAME = os.path.abspath(os.path.dirname(sys.argv[0])) + '/config.toml'
+FILE_NAME = os.path.abspath(os.path.dirname(sys.argv[0])) + '/btw.toml'
+
+DEFAULT_CONFIG = {
+  "OPENAI_API_KEY": "",
+  "HISTORY_FILE_NAME": "history.csv",
+  "DEBUG": False
+}
 
 def __load_file():
-  return toml.load(FILE_NAME)
+  if not os.path.exists(FILE_NAME):
+    with open(FILE_NAME, "w+") as file:
+      file.write(toml.dumps(DEFAULT_CONFIG))
+    return DEFAULT_CONFIG
+  else:
+    return toml.load(FILE_NAME)
 
 def get(var):
   return __load_file()[var]

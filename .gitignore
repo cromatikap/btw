@@ -1,7 +1,7 @@
 .vscode
 .venv
 __pycache__
-config.toml
+btw.toml
 .DS_Store
 history.csv
 build
