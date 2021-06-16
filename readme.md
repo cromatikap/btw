@@ -103,19 +103,3 @@ This will create two files in a newly created `dist` directory, a source archive
 ```
 (.venv) $ twine upload dist/*
 ```
-
-> :warning: Once installed through pip, the package doesn't take in consideration arguments because `sys.argv` is not passed to `sys.exit(main())` in the file located in `/your/python/installation/path/bin/btw`. If you are reading this and know the solution, please contact me (or make PR) it would makes me be happy 😁
-
-## Build with PyInstaller (deprecated)
-
-This has to be run from the virtual environment setup described above.
-
-```
-(.venv) $ rm -rf build dist            # <- clean old build
-(.venv) $ python -m PyInstaller btw.py
-(.venv) $ cp config.template.toml dist/btw/config.toml
-(.venv) $ cp -r .venv/lib/python3.8/site-packages/certifi dist/btw
-(.venv) $ cp -r .venv/lib/python3.8/site-packages/openai dist/btw
-```
-
-Try it: `(.venv) $ dist/btw/btw`

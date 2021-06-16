@@ -3,11 +3,11 @@ from .User import User
 from .History import History
 from . import log, config, ai
 
-def main(argv):
-  if(len(argv) > 1 and argv[1] == '--add-openai-key'):
-    __add_openai_key(argv)
+def main():
+  if(len(sys.argv) > 1 and sys.argv[1] == '--add-openai-key'):
+    __add_openai_key(sys.argv)
   else:
-    __run(argv)
+    __run(sys.argv)
 
 def __run(argv):
   log.debug('      [Debug mode]      ')
@@ -46,4 +46,4 @@ def __add_openai_key(argv):
     print('OpenAI API Key added.')
 
 if __name__ == '__main__':
-  main(sys.argv)
+  main()
