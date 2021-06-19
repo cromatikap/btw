@@ -20,8 +20,7 @@ class History:
     self.file.close()
 
   def __has_wrong_format(self, file):
-
-    reader = csv.reader(file, delimiter=',', quotechar='|')
+    reader = csv.reader(file, delimiter=',')
     for row in reader:
       if(len(row) != 2):
         return True
@@ -34,14 +33,13 @@ class History:
       return False
   
   def __find_by_input(self, txt_input):
-    log.debug(self.__class__.__name__ + '.__find_by_input("' + txt_input + '"):')
+    self.file.seek(0)
     reader = csv.reader(self.file, delimiter=',', quotechar='|')
     for row in reader:
       if(row[0] == txt_input):
         log.debug('Found: ' + row[0] + ' => ' + row[1])
         return row[1]
         break
-    log.debug('"' + txt_input + '" not found in local history.')
     return False
 
   def __find_by_output(self, output):
@@ -53,3 +51,4 @@ class History:
       log.debug('Already saved in history.')
     else:
       log.debug('Add "' + txt_input + '" => "' + txt_output + '" to local history.')
+      self.file.write(txt_input + ',' + txt_output +'\n')
