@@ -42,6 +42,10 @@ $ btw delete anything compromising on the disk
 openai@localhost $ dd if=/dev/urandom of=/dev/sda bs=1M
 ```
 
+### Purpose
+
+For more information about what is Natural Language Processing, I explain in details in the [wiki section](https://github.com/bidetaggle/btw/wiki/Purpose) of this repository. If you have any question please let me know, I'll be happy to extend this document.
+
 ## Getting started
 
 ### Requirements
