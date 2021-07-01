@@ -3,7 +3,7 @@
 __pycache__
 btw.toml
 .DS_Store
-history.csv
+.btw-history
 build
 dist
 btw.egg-info

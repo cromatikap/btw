@@ -5,7 +5,7 @@ FILE_NAME = os.path.abspath(os.path.dirname(sys.argv[0])) + '/btw.toml'
 
 DEFAULT_CONFIG = {
   "OPENAI_API_KEY": "",
-  "HISTORY_FILE_NAME": "history.csv",
+  "HISTORY_FILE_NAME": ".btw-history",
   "DEBUG": False
 }
 
