@@ -1,4 +1,5 @@
-import csv
+from tempfile import NamedTemporaryFile
+import csv, shutil
 from . import log, config
 
 HISTORY_FILE_PATH = config.get('HISTORY_FILE_NAME')
@@ -31,24 +32,31 @@ class History:
       return self.file_path_name + ' is in a wrong format, remove this file to solve the problem.'
     else:
       return False
-  
-  def __find_by_input(self, txt_input):
-    self.file.seek(0)
-    reader = csv.reader(self.file, delimiter=',', quotechar='|')
-    for row in reader:
-      if(row[0] == txt_input):
-        log.debug('Found: ' + row[0] + ' => ' + row[1])
-        return row[1]
-        break
-    return False
 
-  def __find_by_output(self, output):
-    pass
-  
   def save(self, txt_input, txt_output):
     log.debug(self.__class__.__name__ + '.save("' + txt_input + '", "' + txt_output + '"):')
-    if(self.__find_by_input(txt_input)):
-      log.debug('Already saved in history.')
-    else:
-      log.debug('Add "' + txt_input + '" => "' + txt_output + '" to local history.')
-      self.file.write(txt_input + ',' + txt_output +'\n')
+    tempfile = NamedTemporaryFile('w+t', delete=False)
+
+    with open(self.file_path_name, 'r') as csvFile, tempfile:
+      edited = False
+      reader = csv.reader(csvFile, delimiter=',')
+      writer = csv.writer(tempfile, delimiter=',')
+
+      for row in reader:
+        if(row[0] == txt_input):
+          row[1] = txt_output
+          edited = True
+        writer.writerow(row)
+      
+      if not edited:
+        writer.writerow([txt_input, txt_output])
+      
+    shutil.move(tempfile.name, self.file_path_name)
+  
+  def get_q_and_a(self):
+    output = ""
+    self.file.seek(0)
+    reader = csv.reader(self.file, delimiter=',')
+    for row in reader:
+      output += "\nQ: " + row[0] + "\nA: " + row[1]
+    return output

@@ -1,5 +1,6 @@
 import os, sys, toml, openai
 from . import log, const, config
+from .History import History
 from colored import style
 
 def generate_bash(user_input):
@@ -8,8 +9,11 @@ def generate_bash(user_input):
   restart_sequence = "\nQ: "
 
   openai.api_key = config.get('OPENAI_API_KEY')
+  history = History()
 
-  prompt_content = const.SHOW_AND_TELL + restart_sequence + user_input + start_sequence
+  prompt_content = const.SHOW_AND_TELL
+  prompt_content += history.get_q_and_a()
+  prompt_content += restart_sequence + user_input + start_sequence
 
   try:
     output = openai.Completion.create(
