@@ -1,12 +1,13 @@
 
 
-<h1 align="center">By the way...</h1>
-
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/bidetaggle/btw/master/assets/bytheway.png" />
+</h1>
 
 <h2 align="center">
-  ... NLP command line powered by openai.
+  NLP command line powered by openai.
   <br /><br />
-  <img src="https://user-images.githubusercontent.com/7074019/110270554-5d453180-7fc6-11eb-90ca-43367bca5b15.gif" />
+  <img src="https://raw.githubusercontent.com/bidetaggle/btw/master/assets/bytheway2.gif" />
 </h2>
 
 ## Usage
