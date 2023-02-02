@@ -17,14 +17,10 @@ def generate_bash(user_input):
 
   try:
     output = openai.Completion.create(
-      # engine="davinci",
       model="text-davinci-003",
       prompt=prompt_content,
       temperature=0.5,
       max_tokens=100,
-      # top_p=1,
-      # frequency_penalty=0.2,
-      # presence_penalty=0,
       stop=["\n"]
     )
 
