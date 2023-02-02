@@ -1,5 +1,6 @@
 .vscode
 .venv
+venv
 __pycache__
 btw.toml
 .DS_Store
@@ -7,3 +8,4 @@ btw.toml
 build
 dist
 btw.egg-info
+*.spec
