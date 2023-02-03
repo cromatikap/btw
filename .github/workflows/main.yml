@@ -9,8 +9,10 @@ jobs:
         with:
           python-version: '3.8'
       - name: Create config.toml
+        env:
+          SECRET: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          echo "OPENAI_API_KEY = 'dummy value'" > config.toml
+          echo "OPENAI_API_KEY = '$SECRET'" > config.toml
           echo "HISTORY_FILE_NAME = 'history.csv'" >> config.toml
           echo "DEBUG = true" >> config.toml
       - name: pre test
