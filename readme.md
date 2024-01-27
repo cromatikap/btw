@@ -10,6 +10,15 @@
   <img src="https://raw.githubusercontent.com/bidetaggle/btw/master/assets/bytheway2.gif" />
 </h2>
 
+## Installation
+
+![PyPI - Version](https://img.shields.io/pypi/v/btw)
+![](https://img.shields.io/pypi/dm/btw)
+
+```
+pip install btw
+```
+
 ## Usage
 
 1. Add your OpenAI API key
@@ -47,11 +56,10 @@ openai@localhost $ dd if=/dev/urandom of=/dev/sda bs=1M
 
 For more information about what is Natural Language Processing, I explain in details in the [wiki section](https://github.com/bidetaggle/btw/wiki/Purpose) of this repository. If you have any question please let me know, I'll be happy to extend this document.
 
-## Getting started
+## Development
 
-### Requirements
-
-- python >= 3.8
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/btw)
+![PyPI - License](https://img.shields.io/pypi/l/btw)
 
 ### Environment setup
 ```
